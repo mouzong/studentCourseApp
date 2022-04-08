@@ -1,9 +1,7 @@
 package com.codegrill.entity;
 
-import com.codegrill.entity.Course;
-
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * The type Student.
@@ -24,6 +22,18 @@ public class Student {
         this.studentName = studentName;
         this.studentEmail = studentEmail;
         this.studentCourses = studentCourses;
+    }
+
+    /**
+     * Instantiates a new Student using only mail and studentname .
+     *
+     * @param studentName  the student name
+     * @param studentEmail the student email
+     */
+    public Student(String studentName, String studentEmail) {
+        this.studentName = studentName;
+        this.studentEmail = studentEmail;
+        this.studentCourses = new ArrayList<>();
     }
 
     /**
@@ -78,6 +88,15 @@ public class Student {
      */
     public void setStudentCourses(List<Course> studentCourses) {
         this.studentCourses = studentCourses;
+    }
+
+    /**
+     * Register student to course.
+     *
+     * @param course the course
+     */
+    public void registerStudentToCourse(Course course){
+        studentCourses.add(course);
     }
 
     @Override
