@@ -1,6 +1,9 @@
-package com.codegrill;
+package com.codegrill.entity;
+
+import com.codegrill.entity.Course;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The type Student.
@@ -84,5 +87,18 @@ public class Student {
                 ", studentEmail='" + studentEmail + '\'' +
                 ", studentCourses=" + studentCourses +
                 '}';
+    }
+
+    /**
+     * Gets score for course.
+     *
+     * @param course the course
+     * @return the score for a pecific course
+     */
+    public double getScoreForCourse(Course course) {
+
+        Course courseNeeded = studentCourses.stream()
+                .filter(course1 -> course1.getCourseName().equals(course.getCourseName())).findFirst().orElse(null);
+        return course.getCourseMark();
     }
 }

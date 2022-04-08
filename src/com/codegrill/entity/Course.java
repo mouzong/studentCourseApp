@@ -1,4 +1,4 @@
-package com.codegrill;
+package com.codegrill.entity;
 
 import java.time.LocalDate;
 
